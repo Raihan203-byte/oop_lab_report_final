@@ -35,6 +35,43 @@ string get_value(string line) {
     return line.substr(pos + 1);
 }
 
+// in-member function defined here
+Member* Member::in_member() {
+    string name, email, address;
+
+    cout << "Enter the name : ";
+    getline(cin >> ws, name);
+
+    cout << "Enter the email : ";
+    getline(cin >> ws, email);
+
+    cout << "Enter the address : ";
+    getline(cin >> ws, address);
+
+    cout << "Enter S for student and F for Faculty : ";
+
+    char choice;
+    cin >> choice;
+
+    Member* m = nullptr;
+
+    switch (choice) {
+        case 'S':
+            m = new Student(name, email, address);
+            break;
+
+        case 'F':
+            m = new Faculty(name, email, address);
+            break;
+
+        default:
+            cout << "Invalid input\n";
+            return nullptr;
+    }
+
+    return m;
+}
+
 
 // Creates the files if they don't already exist.
 void initialize_files() {
