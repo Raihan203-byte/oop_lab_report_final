@@ -1,3 +1,6 @@
 libmethods.a
 methods.o
 test
+books.lbms
+member.lbms
+transactions.lbms
